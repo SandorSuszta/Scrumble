@@ -1,19 +1,23 @@
 import SwiftUI
 
 struct ContentView: View {
-    @State private var rootWord = "Tropicana"
+    @State private var rootWord = ""
     @State private var enteredWord = ""
     @State private var foundWords = [String]()
+    @State private var score = 0
     
     @State private var showError = false
     @State private var errorDescription = ""
+    @FocusState private var isTextFieldFocused: Bool
     
     var body: some View {
         NavigationStack {
+            
             List {
                 Section {
                     TextField("Enter word", text: $enteredWord)
                         .textInputAutocapitalization(.never)
+                        .focused($isTextFieldFocused)
                 }
                 
                 Section {
@@ -23,13 +27,18 @@ struct ContentView: View {
                             Text(word)
                         }
                     }
+                } header: {
+                    Text("Score: \(score)")
+                        .font(.title3)
                 }
             }
             .onAppear(perform: startGame)
             .navigationTitle(rootWord)
             .onSubmit { addNewWord() }
             .alert(errorDescription, isPresented: $showError) {
-                Button("OK", role: .cancel) { }
+                Button("OK", role: .cancel) {
+                    isTextFieldFocused = true
+                }
             }
         }
     }
@@ -60,17 +69,29 @@ extension ContentView {
             return
         }
         
+        guard !isRootWord(word: answer) else {
+            showError(.isRootWord)
+            return
+        }
+        
         withAnimation {
+            score += answer.count
             foundWords.insert(answer, at: 0)
         }
+        
         enteredWord = ""
+        isTextFieldFocused = true
     }
     
     private func startGame() {
         if let rootWordsFileURL = Bundle.main.url(forResource: "start", withExtension: "txt") {
+            
             if let rootWordsString = try? String(contentsOf: rootWordsFileURL) {
-                let rootWordsArray = rootWordsString.components(separatedBy: "/n")
+                
+                let rootWordsArray = rootWordsString.components(separatedBy: "\n")
+                
                 rootWord = rootWordsArray.randomElement() ?? "silkworm"
+                isTextFieldFocused = true
                 
                 return
             }
@@ -88,6 +109,10 @@ extension ContentView {
 // MARK: - Word validation
     
 extension ContentView {
+    
+    private func isRootWord(word: String) -> Bool {
+        word == rootWord
+    }
     
     private func isOriginal(word: String) -> Bool {
         !foundWords.contains(word)
