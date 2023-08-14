@@ -11,6 +11,8 @@
 		79E717ED2A898C2B00F97437 /* ContentView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 79E717EC2A898C2B00F97437 /* ContentView.swift */; };
 		79E717EF2A898C2F00F97437 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 79E717EE2A898C2F00F97437 /* Assets.xcassets */; };
 		79E717F22A898C2F00F97437 /* Preview Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 79E717F12A898C2F00F97437 /* Preview Assets.xcassets */; };
+		79E717F92A8A1AFB00F97437 /* start.txt in Resources */ = {isa = PBXBuildFile; fileRef = 79E717F82A8A1AFB00F97437 /* start.txt */; };
+		79E717FB2A8A3F1B00F97437 /* ScrumbleError.swift in Sources */ = {isa = PBXBuildFile; fileRef = 79E717FA2A8A3F1B00F97437 /* ScrumbleError.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -19,6 +21,8 @@
 		79E717EC2A898C2B00F97437 /* ContentView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContentView.swift; sourceTree = "<group>"; };
 		79E717EE2A898C2F00F97437 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		79E717F12A898C2F00F97437 /* Preview Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = "Preview Assets.xcassets"; sourceTree = "<group>"; };
+		79E717F82A8A1AFB00F97437 /* start.txt */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = start.txt; sourceTree = "<group>"; };
+		79E717FA2A8A3F1B00F97437 /* ScrumbleError.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ScrumbleError.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -53,6 +57,8 @@
 			children = (
 				79E717EA2A898C2B00F97437 /* ScrumbleApp.swift */,
 				79E717EC2A898C2B00F97437 /* ContentView.swift */,
+				79E717FA2A8A3F1B00F97437 /* ScrumbleError.swift */,
+				79E717F82A8A1AFB00F97437 /* start.txt */,
 				79E717EE2A898C2F00F97437 /* Assets.xcassets */,
 				79E717F02A898C2F00F97437 /* Preview Content */,
 			);
@@ -126,6 +132,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				79E717F22A898C2F00F97437 /* Preview Assets.xcassets in Resources */,
+				79E717F92A8A1AFB00F97437 /* start.txt in Resources */,
 				79E717EF2A898C2F00F97437 /* Assets.xcassets in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -138,6 +145,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				79E717ED2A898C2B00F97437 /* ContentView.swift in Sources */,
+				79E717FB2A8A3F1B00F97437 /* ScrumbleError.swift in Sources */,
 				79E717EB2A898C2B00F97437 /* ScrumbleApp.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
